@@ -1,0 +1,18 @@
+<form #loginForm="ngForm" (ngSubmit)="OnSubmit(loginForm)">
+    <div class="container">
+        <div class="col-md-5">
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="username">Email address</label>
+                <input type="email" class="form-control" name="username" ngModel>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" class="form-control" name="password" ngModel>
+            </div><p></p>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <p></p>
+            <p>{{login_status}}</p>
+        </div>
+    </div>
+</form>

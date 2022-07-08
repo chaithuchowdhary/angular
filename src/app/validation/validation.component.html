@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-md-5">
+        <h1 class="page-title">Employee Registration form</h1>
+        <form class="form-group" #registrationForm="ngForm">
+            <div class="col form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" #fname="ngModel"  name="firstname" required minlength="4" class="form-control" [(ngModel)]="employee.firstname">
+                <label for="lastname">Last Name</label>
+                <input type="text" #lname="ngModel"name="lastname" class="form-control" required minlength="4" [(ngModel)]="employee.lastname">
+                <p></p>
+                <div *ngIf="fname.touched && fname.invalid" class="alert alert-danger">
+                    <p *ngIf="fname.hasError('required')">firstname is required</p>
+                    <p *ngIf="fname.hasError('minlength')">minimum length should be 4</p>
+                </div>
+                <div *ngIf="lname.touched && lname.invalid" class="alert alert-danger">
+                    <p *ngIf="lname.hasError('required')">lastname is required</p>
+                    <p *ngIf="lname.hasError('minlength')">minimum length should be 4</p>
+                </div>
+                <div class="col form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                      </button>
+                </div>
+                {{employee | json}}
+
+            </div>
+        </form>
+    </div>
+</div>

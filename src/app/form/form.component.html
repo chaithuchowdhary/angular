@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="col-xs-10">
+      <div class="row justify-content-md-center">
+        <form #contactForm="ngForm" (ngSubmit)="OnSubmit(contactForm)">
+  
+          <div class="form-group">
+  
+            <p>
+              <label for="firstname">First Name</label>
+              <input class="form-control" type="text" name="firstname" placeholder="First Name" ngModel>
+            </p>
+            <p>
+              <label for="lastname">Last Name</label>
+              <input class="form-control" type="text" name="lastname" placeholder="Last Name" ngModel>
+            </p>
+            <p>
+              <label for="email">E-Mail</label>
+              <input class="form-control" type="email" name="email" placeholder="E-Mail" ngModel>
+            </p>
+  
+            <label for="gender">Gender</label>
+            <div class="form-check">
+              <input class="form-check-input" value="male" type="radio" name="gender" ngModel>
+              &nbsp;<label for="male" class="form-check-label">Male</label>&nbsp;
+              <input class="form-check-input" value="female" type="radio" name="gender" ngModel>
+              &nbsp;<label for="female" class="form-check-label">Female</label>
+            </div>
+  
+            <p></p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="martial_status" title="Marriage Status"
+                value="martial_status" ngModel>
+              &nbsp;<label class="form-check-label" for="martial_status">Married</label>
+            </div>
+  
+            <p></p>
+            <label for="country">Country</label>
+            <select class="form-control" name="country" placeholder="country" title="Country" ngModel>
+              <option [ngValue]="null" disabled>Select Country</option>
+              <option *ngFor="let c of countrylist" [ngValue]="c.id">{{c.name}}</option>
+            </select>
+            <p></p>
+            <button class="btn btn-primary" type="submit">submit</button>
+            <hr>
+            <pre>Valid : {{contactForm.valid}} </pre>
+            <pre>Touched : {{contactForm.touched  }} </pre>
+            <pre>Dirty:{{contactForm.dirty}}</pre>
+            <pre>Pristine:{{contactForm.pristine}}</pre>
+            <pre>Value : {{contactForm.value | json }} </pre>
+          </div>
+        </form>
+        <hr>
+      </div>
+    </div>
+  </div>
